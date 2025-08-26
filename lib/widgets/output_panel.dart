@@ -41,7 +41,7 @@ class _LogViewerState extends State<LogViewer> {
     return Container(
       padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceVariant.withOpacity(0.3),
+        color: theme.colorScheme.surfaceContainerHighest.withAlpha(255),
         borderRadius: BorderRadius.circular(8.0),
         border: Border.all(color: theme.colorScheme.outlineVariant),
       ),

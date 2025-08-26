@@ -34,7 +34,7 @@ class TdlPathScreen extends StatelessWidget {
 
   Future<void> _pickTdlPath(BuildContext context) async {
     final result = await FilePicker.platform.pickFiles();
-    if (result != null && result.files.single.path != null) {
+    if (result != null && result.files.single.path != null && context.mounted) {
       try {
         await context.read<TdlService>().setTdlPath(result.files.single.path!);
         if (context.mounted) {

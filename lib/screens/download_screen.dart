@@ -131,12 +131,17 @@ class _DownloadScreenState extends State<DownloadScreen>
     }
 
     final args = ['dl'];
-    for (final url in urls) args.addAll(['-u', url.trim()]);
-    for (final file in files) args.addAll(['-f', file.trim()]);
+    for (final url in urls) {
+      args.addAll(['-u', url.trim()]);
+    }
+    for (final file in files) {
+      args.addAll(['-f', file.trim()]);
+    }
 
     if (settings.dir.isNotEmpty) args.addAll(['-d', settings.dir]);
-    if (settings.template.isNotEmpty)
+    if (settings.template.isNotEmpty) {
       args.addAll(['--template', settings.template]);
+    }
     if (settings.threads.isNotEmpty) args.addAll(['-t', settings.threads]);
     if (settings.limit.isNotEmpty) args.addAll(['-l', settings.limit]);
     if (settings.include.isNotEmpty) args.addAll(['-i', settings.include]);

@@ -32,7 +32,7 @@ class _MigrateScreenState extends State<MigrateScreen>
       type: FileType.custom,
       allowedExtensions: ['tdl'],
     );
-    if (result != null && result.files.single.path != null) {
+    if (result != null && result.files.single.path != null && mounted) {
       final settings = context.read<SettingsService>().settings;
       context.read<TdlService>().runCommand([
         'recover',

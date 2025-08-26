@@ -8,7 +8,7 @@ class TdlService extends ChangeNotifier {
   String? _tdlPath;
   final List<String> _log = [];
   bool _isRunning = false;
-  bool _isLoading = true;
+
   double _downloadProgress = 0.0;
 
   Process? _currentProcess;
@@ -27,7 +27,7 @@ class TdlService extends ChangeNotifier {
     if (savedPath != null && await _validateTdlPath(savedPath)) {
       _tdlPath = savedPath;
     }
-    _isLoading = false;
+
     notifyListeners();
   }
 

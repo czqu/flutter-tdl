@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../services/settings_service.dart';
 import '../services/tdl_service.dart';
-import '../widgets/collapsible_log_viewer.dart';
 
 class ForwardScreen extends StatefulWidget {
   const ForwardScreen({super.key});

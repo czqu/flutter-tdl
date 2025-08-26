@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:path/path.dart' as p;
-import 'package:provider/provider.dart';
+import 'package:path/path.dart' as path;
 import 'package:file_picker/file_picker.dart';
+import 'package:provider/provider.dart';
 import '../services/settings_service.dart';
 import '../services/tdl_service.dart';
 import '../widgets/collapsible_log_viewer.dart';
@@ -106,19 +106,25 @@ class _LoginScreenState extends State<LoginScreen>
 
   List<String> _buildGlobalArgs(GlobalSettings settings) {
     final globalArgs = <String>[];
-    if (settings.namespace.isNotEmpty && settings.namespace != 'default')
+    if (settings.namespace.isNotEmpty && settings.namespace != 'default') {
       globalArgs.addAll(['-n', settings.namespace]);
-    if (settings.proxy.isNotEmpty)
+    }
+    if (settings.proxy.isNotEmpty) {
       globalArgs.addAll(['--proxy', settings.proxy]);
-    if (settings.storage.isNotEmpty)
+    }
+    if (settings.storage.isNotEmpty) {
       globalArgs.addAll(['--storage', settings.storage]);
+    }
     if (settings.ntp.isNotEmpty) globalArgs.addAll(['--ntp', settings.ntp]);
-    if (settings.reconnectTimeout.isNotEmpty)
+    if (settings.reconnectTimeout.isNotEmpty) {
       globalArgs.addAll(['--reconnect-timeout', settings.reconnectTimeout]);
-    if (settings.poolSize.isNotEmpty)
+    }
+    if (settings.poolSize.isNotEmpty) {
       globalArgs.addAll(['--pool', settings.poolSize]);
-    if (settings.delay.isNotEmpty)
+    }
+    if (settings.delay.isNotEmpty) {
       globalArgs.addAll(['--delay', settings.delay]);
+    }
     if (settings.debug) globalArgs.add('--debug');
     return globalArgs;
   }
@@ -131,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen>
 
     if (result != null && result.files.single.path != null) {
       final exePath = result.files.single.path!;
-      final dirPath = p.dirname(exePath);
+      final dirPath = path.dirname(exePath);
       setState(() {
         _pathController.text = dirPath;
       });
